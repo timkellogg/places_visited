@@ -2,6 +2,26 @@
 
 <p>Here are all your Destinations</p>
 
+<form action="/places" method="post">
+  <div class = "form-group">
+  <label for="location">Please Enter Location</label>
+  <input id="location" name="location" class = "form-control" type = "text">
+  </div>
+
+  <div class = "form-group">
+  <label for="Description">Please Describe Location</label>
+  <input id="Description" name="Description" class = "form-control" type = "text">
+  </div>
+
+  <div class = "form-group">
+  <label for="Length">How many days were you there?</label>
+  <input id="Length" name="Length" class = "form-control" type = "text">
+  </div>
+
+  <button name="button" type = "submit">Add Destination</button>
+
+</form>
+
 <% if @places %>
   <table class="table table-striped">
     <tr>
