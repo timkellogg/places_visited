@@ -29,7 +29,6 @@ class Place
   end
 
   define_singleton_method(:clear) do
-  @@all_places = []
+    @@all_places = []
   end
-  # Place.new(name, description, length_of_time)
 end

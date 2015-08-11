@@ -1,0 +1,22 @@
+<h1>Oh The Places You've Been</h1>
+
+<p>Here are all your Destinations</p>
+
+<% if @places %>
+  <table class="table table-striped">
+    <tr>
+        <td>Number</td>
+        <td>Place</td>
+        <td>Description</td>
+        <td>Length of Time</td>
+    </tr>
+    <% @places.each_with_index() do |place, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= place.name %></td>
+        <td><%= place.description %></td>
+        <td><%= place.length_of_time %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
