@@ -1,6 +1,10 @@
-<h1>Oh The Places You've Been</h1>
+<div class="row text-center">
+  <h1>Oh The Places You've Been</h1>
+</div>
 
-<p>Here are all your Destinations</p>
+<div class="row text-center">
+  <p class="lead">Here are all your Destinations</p>
+</div>
 
 <form action="/places" method="post">
   <div class = "form-group">
@@ -18,17 +22,24 @@
     <input id="Length" name="Length" class = "form-control" type = "text">
   </div>
 
-  <button name="button" type = "submit">Add Destination</button>
-
+  <div class="row text-center">
+    <button class="btn btn-primary" name="button" type = "submit">Add Destination</button>
+  </div>
 </form>
 
+<div class="row text-center">
+  <h2>Places</h2>
+</div>
+
 <% if @places %>
-  <table class="table table-striped">
-    <tr>
+  <table class="table table-hover table-condensed">
+    <tr class= "toprow">
       <td>Number</td>
       <td>Place</td>
       <td>Description</td>
       <td>Length of Time</td>
+      <td>More Info</td>
+      <td>Google Maps</td>
     </tr>
     <% @places.each_with_index() do |place, index| %>
       <tr>
@@ -36,6 +47,8 @@
         <td><%= place.name %></td>
         <td><%= place.description %></td>
         <td><%= place.length_of_time %></td>
+        <td><a href="https://en.wikipedia.org/wiki/<%= place.name %>">info</a></td>
+        <td><a href="https://www.google.com/maps/place/<%= place.name %>">map</a></td>
       </tr>
     <% end %>
   </table>
