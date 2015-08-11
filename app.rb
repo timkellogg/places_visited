@@ -3,13 +3,19 @@ require('sinatra/reloader')
 require('./lib/place.rb')
 
 get('/') do
-  Place.clear()
-  
-  first_place = Place.new('New York', 'a big city', 1)
-  first_place.save()
-  second_place = Place.new('Portland', 'a medium city', 365)
-  second_place.save()
+
 
   @places = Place.all()
   erb(:index)
+end
+
+
+post('/places') do
+  name           = params.fetch("location")
+  description    = params.fetch("Description")
+  length_of_time = params.fetch("Length")
+
+  @place = Place.new(name, description, length_of_time)
+  @place.save()
+  erb(:places)
 end
