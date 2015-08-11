@@ -27,6 +27,27 @@ describe(Place) do
     end
   end
 
+  describe(".all") do
+    it('prints out the list') do
+      expect(Place.all()).to(eq([@test_place]))
+    end
+  end
 
+  describe('.clear') do
+    it ('clears out the places') do
+      expect(Place.clear()).to(eq([]))
+    end
+  end
 
+  describe('.save') do
+    it ('saves the places') do
+      next_place = Place.new("Nepal", "Roof-top of the world", 20)
+      next_place.save()
+      expect(Place.all()).to(eq([@test_place, next_place]))
+    end
+  end
+
+  after() do
+    Place.clear()
+  end
 end
